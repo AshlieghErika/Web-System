@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Different Types of Flowers</title>
+    <style>
+        body {
+            font-family: cursive; /* All fonts are now cursive */
+            color: white; /* All text is now white */
+            background-color: pink;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            flex-direction: column; 
+        }
+        .container {
+            text-align: center;
+            max-width: 1100px;
+            padding: 20px;
+        }
+        table {
+            margin: 0 auto;
+            border-spacing: 20px;
+        }
+        td {
+            vertical-align: top;
+            text-align: center;
+            width: 200px;
+        }
+        img {
+            border-radius: 12px;
+            margin-top: 10px;
+            width: 200px;
+            height: auto;
+        }
+        iframe {
+            border-radius: 12px;
+            margin-top: 20px;
+            width: 560px;
+            max-width: 100%;
+            height: 315px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div style="text-align: center; margin-bottom: 20px;">
+        <h1>Press the buttons here to know random facts about flowers.</h1>
+        <p id="text-display" style="font-size: 1.2em; font-weight: bold;"></p>
+        <button onclick="showText('The world\'s largest flower is the Titan Arum, also known as the corpse flower, which can grow over 10 feet high.')">Facts</button>
+        <button onclick="showText('Tulips were once more valuable than gold in 17th-century Holland during \'Tulip Mania\'.')">Facts</button>
+        <button onclick="showText('Broccoli is actually a flower.')">Facts</button>
+        <button onclick="showText('Some flowers, like the Moonflower, only bloom at night.')">Facts</button>
+        <button onclick="showText('The oldest living plant in the world is a flower, a King\'s Holly tree in Tasmania, Australia.')">Facts</button>
+    </div>
+
+    <script>
+        function showText(text) {
+            document.getElementById('text-display').innerText = text;
+        }
+    </script>
+
+    <div class="container">
+        <h1>Different Types of Flowers</h1>
+
+        <table>
+            <tr>
+                <td>
+                    <h2>Sunflowers</h2>
+                    <p>Sunflowers are known for their large, bright yellow petals and tall stems. They follow the sun throughout the day.</p>
+                    <a href="https://www.pexels.com/photo/sunflower-during-sunset-33044/" target="_blank">
+                        <img src="https://images.pexels.com/photos/33044/sunflower-sun-summer-yellow.jpg?auto=compress&cs=tinysrgb&h=350" alt="Sunflower">
+                    </a>
+                </td>
+                <td>
+                    <h2>Roses</h2>
+                    <p>Roses are classic flowers that come in many colors and are often associated with love and romance.</p>
+                    <a href="https://www.pexels.com/photo/white-and-red-roses-236259/" target="_blank"> <img src="https://images.pexels.com/photos/236259/pexels-photo-236259.jpeg?auto=compress&cs=tinysrgb&h=350" alt="Rose">
+                    </a>
+                </td>
+                <td>
+                    <h2>Tulips</h2>
+                    <p>Tulips bloom in the spring and are known for their cup-shaped flowers. They come in many vibrant colors.</p>
+                    <a href="https://www.pexels.com/photo/field-of-red-tulip-flowers-712876/" target="_blank"> <img src="https://images.pexels.com/photos/712876/pexels-photo-712876.jpeg?auto=compress&cs=tinysrgb&h=350" alt="Tulips">
+                    </a>
+                </td>
+            </tr>
+            
+        </table>
+
+        <hr>
+        <p>
+            Want to see more flowers? 
+            <a href="https://www.pexels.com/search/flowers/" target="_blank">Click here to explore more beautiful flowers on Pexels</a>.
+        </p>
+
+        <h2>Flowers</h2>
+        <iframe src="https://www.youtube.com/embed/bXlQ3Mw4uGc" 
+                title="Flowers" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+        </iframe>
+    </div>
+
+</body>
+</html>
