@@ -21,5 +21,141 @@
     
     <img src="sample.jpeg" alt="Sample Product" width="850">
   </div>
+</body><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Products</title>
+<style>
+   body {
+     font-family: Arial, sans-serif;
+     background-color: #f0f0f0;
+     padding: 20px;
+   }
+   nav ul {
+     list-style: none;
+     background: #333;
+     padding: 10px;
+     text-align: center;
+   }
+   nav ul li {
+     display: inline;
+     margin: 10px;
+   }
+   nav ul li a {
+     color: white;
+     text-decoration: none;
+   }
+   .content {
+     background: #e8e8e8;
+     padding: 20px;
+     border-radius: 8px;
+   }
+   form {
+     margin-top: 20px;
+   }
+   #receipt {
+     margin-top: 20px;
+     padding: 10px;
+     background: white;
+     border-radius: 8px;
+     display: none;
+   }
+</style>
+</head>
+<body>
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About Us</a></li>
+<li><a href="products.html">Products</a></li>
+<li><a href="gallery.html">Gallery</a></li>
+<li><a href="contact.html">Contact Us</a></li>
+</ul>
+</nav>
+<div class="content">
+<h1>Our Products</h1>
+<p>Here are our available shirt designs as of the moment. Grab yours while stocks last!</p>
+<img src="sample.jpeg" alt="Sample Product" width="850">
+<h2>Would you like to order now?</h2>
+<p>Answer the form below to order:</p>
+<form id="orderForm">
+<label>Name:</label><br>
+<input type="text" id="name" required><br><br>
+<label>Shirt Design:</label><br>
+<select id="product">
+<option value="Design 1">Design 1 - ₱300</option>
+<option value="Design 2">Design 2 - ₱350</option>
+<option value="Design 3">Design 3 - ₱400</option>
+</select><br><br>
+<label>Quantity:</label><br>
+<input type="number" id="quantity" min="1" value="1"><br><br>
+<button type="button" onclick="placeOrder()">Submit Order</button>
+</form>
+<div id="receipt"></div>
+</div>
+<script>
+   //VARIABLES
+   let products = {
+     "Design 1": 300,
+     "Design 2": 350,
+     "Design 3": 400
+   };
+   //FUNCTION
+
+   function placeOrder() {
+     //STRINGS & VARIABLES
+     
+     let name = document.getElementById("name").value;
+     let product = document.getElementById("product").value;
+     let quantity = Number(document.getElementById("quantity").value);
+
+
+     //CONDITIONAL STATEMENT
+     if (name === "" || quantity < 1) {
+       alert("Please complete the form properly.");
+       return;
+     }
+     
+     //RANDOM ORDER NUMBER
+
+     let orderNumber = Math.floor(100000 + Math.random() * 900000); // 6-digit number
+     
+     //OPERATORS
+
+     let total = products[product] * quantity;
+     
+     //LOOP
+     let message = "";
+     for (let i = 1; i <= quantity; i++) {
+       message += "Item " + i + ": " + product + "<br>";
+     }
+
+     //OBJECT
+     let order = {
+       customerName: name,
+       orderedProduct: product,
+       orderedQty: quantity,
+       totalAmount: total,
+       orderID: orderNumber
+     };
+
+     //PRINT STATIC RECEIPT
+     let receiptDiv = document.getElementById("receipt");
+     receiptDiv.style.display = "block";
+     receiptDiv.innerHTML = `
+<h3>Order Receipt</h3>
+<p><strong>Order Number:</strong> #${order.orderID}</p>
+<p><strong>Name:</strong> ${order.customerName}</p>
+<p><strong>Shirt Design:</strong> ${order.orderedProduct}</p>
+<p><strong>Quantity:</strong> ${order.orderedQty}</p>
+<p>${message}</p>
+<p><strong>Total:</strong> ₱${order.totalAmount}</p>
+<p><em>Thank you for your order!</em></p>
+     `;
+   }
+</script>
 </body>
 </html>
+</html>
+
